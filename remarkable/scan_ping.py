@@ -47,7 +47,7 @@ def scan_network(network, workers=100):
 
 def print_devices(devices):
     if not devices:
-        print("Aucun appareil vivant trouvé.")
+        print("No devices found.")
         return
     print(f"{'IP':16} {'Hostname'}")
     print("-"*40)
@@ -57,6 +57,6 @@ def print_devices(devices):
 if __name__ == "__main__":
     local_ip = get_local_ip()
     cidr = make_cidr(local_ip)
-    print(f"IP locale détectée : {local_ip} -> scan sur {cidr}")
+    print(f"Local IP detected : {local_ip} -> scan on {cidr}")
     devices = scan_network(cidr)
     print_devices(devices)

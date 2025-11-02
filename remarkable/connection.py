@@ -14,7 +14,7 @@ class RemarkableConnection:
             self.client.connect(self.host, username=self.username, password=self.password)
             return True
         except Exception as e:
-            print("Erreur de connexion:", e)
+            print("Connection error:", e)
             return False
 
     def is_connected(self):

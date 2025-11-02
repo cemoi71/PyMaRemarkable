@@ -10,10 +10,10 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
 
         # Boutons
-        self.btn_settings = QPushButton("Paramètres")
-        self.btn_search = QPushButton("Rechercher tablettes")
-        self.btn_upload = QPushButton("Charger fichier")
-        self.btn_download = QPushButton("Télécharger fichier")
+        self.btn_settings = QPushButton("Parameters")
+        self.btn_search = QPushButton("Search devices")
+        self.btn_upload = QPushButton("Load file")
+        self.btn_download = QPushButton("Download file")
 
         layout.addWidget(self.btn_settings)
         layout.addWidget(self.btn_search)
@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         pass
 
     def upload_file(self):
-        file_name, _ = QFileDialog.getOpenFileName(self, "Sélectionner un fichier à uploader")
+        file_name, _ = QFileDialog.getOpenFileName(self, "Select file to upload")
         if file_name:
             # TODO : appeler remarkable.files.upload_file
             pass
