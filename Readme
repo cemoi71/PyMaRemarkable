@@ -1,0 +1,20 @@
+reMarkableSync/
+│
+├─ main.py               # point d'entrée du programme (GUI)
+├─ config.py             # configuration (dossier d'échange, paramètres SSH)
+├─ remarkable/           # module pour gérer la tablette
+│   ├─ __init__.py
+│   ├─ connection.py     # gérer connexion SSH et état (connectée ou non)
+│   ├─ files.py          # lister, uploader, downloader les fichiers
+│
+├─ gui/                  # module pour la GUI
+│   ├─ __init__.py
+│   ├─ windows.py        # fenêtres principales et dialogues
+│   ├─ widgets.py        # boutons, explorateur de fichiers
+│
+├─ utils/                # fonctions utilitaires
+│   ├─ __init__.py
+│   ├─ ssh_utils.py      # fonctions SSH réutilisables
+│   └─ file_utils.py     # copier fichiers local/remote
+│
+└─ requirements.txt

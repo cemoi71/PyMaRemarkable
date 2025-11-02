@@ -1,0 +1,27 @@
+# virtualenv
+venv/
+ENV/
+env/
+*.pyenv
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Byte-compiled / distribution
+build/
+dist/
+*.egg-info/
+
+# PyCharm
+.idea/
+*.iml
+
+# Logs, secrets
+*.log
+*.env
+.env
+
+# system
+.DS_Store
