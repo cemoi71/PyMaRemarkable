@@ -84,6 +84,13 @@ class MainWindow(QMainWindow):
 
         self.file_manager = RemarkableFiles(self.connection.client)
         self.log("✅ Connection established")
+
+        try:
+            files = self.file_manager.list_files()
+            self.log(f"{len(files)} fichiers trouvés sur {self.remarkable_ip}")
+        except Exception as e:
+            self.log(f"Erreur lors de la liste des fichiers : {e}")
+
         return True
 
     def check_connection(self, show_alert=False):
@@ -91,11 +98,7 @@ class MainWindow(QMainWindow):
             self.status_label.setText(f"❌ Hors ligne ({self.remarkable_ip})")
             return
         self.status_label.setText(f"✅ Connecté ({self.remarkable_ip})")
-        try:
-            files = self.file_manager.list_files()
-            self.log(f"{len(files)} fichiers trouvés sur {self.remarkable_ip}")
-        except Exception as e:
-            self.log(f"Erreur lors de la liste des fichiers : {e}")
+
 
     def show_ip(self):
         self.status_list.clear()
