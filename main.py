@@ -1,22 +1,25 @@
+# main.py
 import sys
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QInputDialog, QLineEdit
 from gui.windows import MainWindow
-from remarkable.connection import RemarkableConnection
-from remarkable.files import RemarkableFiles
 
-def main():
+if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    # Connexion à la reMarkable (host à remplir ou détecter automatiquement)
-    host = "192.168.x.x"
-    r_conn = RemarkableConnection(host, username="root")
-    r_conn.connect()
-    r_files = RemarkableFiles(r_conn.client)
+    # IP de la tablette
+    remarkable_ip = "192.168.178.60"
 
-    window = MainWindow(r_files)
+    # Fenêtre pour demander le mot de passe (masqué)
+    password, ok = QInputDialog.getText(
+        None,
+        "Mot de passe reMarkable",
+        f"Entrez le mot de passe pour {remarkable_ip}:",
+        QLineEdit.EchoMode.Password  # ✅ Syntaxe correcte
+    )
+    if not ok or not password:
+        sys.exit(0)  # on quitte si pas de mot de passe
+
+    window = MainWindow(remarkable_ip, password)
     window.show()
 
     sys.exit(app.exec())
-
-if __name__ == "__main__":
-    main()
